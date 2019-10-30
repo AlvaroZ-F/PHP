@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title>Insercion de Viviendas</title>
+		<link rel="stylesheet" type="text/css" href="viviendastyle.css">
+	</head>
+	<body>
+		<h2> Inserción de Vivienda</h2>
+		<h5> Introduzca los datos de la vivienda</h5>
+		<form method="post" action="vivienda.php">
+			<fieldset>
+				Selecciona el tipo de vivienda: <select name="vivienda">
+					<option value="adosado">Adosado</option>
+					<option value="unifamiliar">Unifamiliar</option>
+					<option value="piso">Piso</piso>
+				</select> <br>
+
+				Selecciona la zona: <select name="zona">
+					<option value="centro">Centro</option>
+					<option value="periferia">Periferia</option>
+				</select> <br>
+
+				Introduce dirección:
+				<input type="text" name="dirección"/><br>
+
+				Selecciona nº de habitaciones:
+				<input type="radio" name="habitaciones" value="1">1
+				<input type="radio" name="habitaciones" value="2">2
+				<input type="radio" name="habitaciones" value="3">3
+				<br>
+
+				Introduce precio:<input type="text" name="precio"/> €<br>
+
+				Introduce tamaño:<input type="text" name="tamano"/> metros cuadrados<br>
+
+				Extras (Marque los que procedan):
+				<input type="checkbox" name="garaje" value="garaje">Garaje
+				<input type="checkbox" name="jardin" value="jardin">Jardin
+				<input type="checkbox" name="piscina" value="piscina">Piscina
+				<br>
+
+				Foto:
+				<input type="file" name="foto" id="foto" value="Examinar"><br>
+
+				<textarea name="observaciones" cols="50" rows="10"></textarea><br>
+
+				<input type="submit" value="enviar" />
+			</fieldset>
+		</form>
+	</body>
+</html>
