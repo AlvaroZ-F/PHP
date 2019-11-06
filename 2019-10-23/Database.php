@@ -76,7 +76,7 @@
 				?>
 				<br><br>
 				<input type="submit" name="submit" value="Submit Application">
-				<button type="submit" name="showdb" value="showdb" onclick="showAlumnoDB()">Show Alumno Database
+				<input type="button" name="showdb" value="Show Alumno Database" onclick="showAlumnoDB()">
 			</fieldset>
 		</form>
 
@@ -133,7 +133,7 @@
 			$showDB = $conn->query($querySHOWDB);
 
 			function showAlumnoDB() {
-				if ($showDB->num_rows > 0) {
+				
 					echo "<br><br>===================== SEARCH RESULTS =============================<br>";
 					while ($row = $showDB->fetch_assoc()) {
 						echo "<p>";
@@ -148,9 +148,7 @@
 						echo $row["Curso"];
 						echo "</p>";
 					}
-				} else {
-					echo "================ NO RESULTS FOUND ==================";
-				}
+				
 			}
 		?>
 	</body>
