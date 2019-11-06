@@ -76,10 +76,12 @@
 				?>
 				<br><br>
 				<input type="submit" name="submit" value="Submit Application">
+				<button type="submit" name="showdb" value="showdb" onclick="showAlumnoDB()">Show Alumno Database
 			</fieldset>
 		</form>
 
 		<?php
+		// SUBMIT BUTTON FUNCTIONALITY
 			$query_idMatricula = "SELECT numMatricula FROM alumno";
 			$numMat = $conn->query($query_idMatricula);
 
@@ -105,27 +107,51 @@
 			}
 
 			function courseChar($cur) {
-				$count = 0;
+				$cont = 1;
 
 				if ($cur->num_rows > 0) {
 					while ($row = $cur->fetch_assoc()) {
-						$count++;
+						$cont++;
 					}
 				}
 
-				return str_pad($cur, 2, '0', STR_PAD_LEFT);
+				return str_pad($cont, 2, '0', STR_PAD_LEFT);
 			}
 
 			if (isset ($_POST['submit']) && validateInsert()) {
-				$query_insert = "INSERT INTO alumno ('numMatricula', 'Nombre', 'Apellidos', 'Telefono', 'Telefono', 'Curso') VALUES (" . numMatCount($numMat) . ", " . $name . ", " . $surname . ", " . $phone . ", " . courseChar($resultqc) . ")";
+				$query_insert = "INSERT INTO alumno (numMatricula, Nombre, Apellidos, Telefono, Curso) VALUES ('" . numMatCount($numMat) . "', '" . $name . "', '" . $surname . "', " . $phone . ", '" . courseChar($resultqc) . "')";
 				if ($conn->query($query_insert) === TRUE) {
 					echo "New record has been created succesfully";
 				} else {
 					echo "Error: " . $query_insert . "<br>" . $conn->error;
 				}
 			}
+		?>
+		<?php
+		//SHOWDB BUTTON FUNCTIONALITY
+			$querySHOWDB = "SELECT * FROM alumno";
+			$showDB = $conn->query($querySHOWDB);
 
-			$conn->close();
+			function showAlumnoDB() {
+				if ($showDB->num_rows > 0) {
+					echo "<br><br>===================== SEARCH RESULTS =============================<br>";
+					while ($row = $showDB->fetch_assoc()) {
+						echo "<p>";
+						echo $row["numMatricula"];
+						echo "-+-";
+						echo $row["Nombre"];
+						echo "-+-";
+						echo $row["Apellidos"];
+						echo "-+-";
+						echo $row["Telefono"];
+						echo "-+-";
+						echo $row["Curso"];
+						echo "</p>";
+					}
+				} else {
+					echo "================ NO RESULTS FOUND ==================";
+				}
+			}
 		?>
 	</body>
 
