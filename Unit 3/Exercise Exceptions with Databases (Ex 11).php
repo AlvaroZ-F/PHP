@@ -44,7 +44,7 @@
         ?>
         <div id="encabezado">
             <h1>Ejercicio: Utilización de excepciones en PDO</h1>
-            <form id="form_seleccion" action=<?php echo $_SERVER['PHP_SELF'];?> method="post">
+            <form id="form_seleccion" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
                 <span>Producto: </span>
                 <select name="producto">
                     <?php
