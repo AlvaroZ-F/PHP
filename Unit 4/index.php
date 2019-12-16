@@ -19,7 +19,7 @@
 					<input type="password" name="password" required="required" placeholder="Password" required>
 				</div>
 				<div class="button-panel">
-					<input type="submite" class="button" title="Log in" name="login" value="login">
+					<input type="submit" class="button" title="Log in" name="login" value="login">
 				</div>
 			</form>
 			<?php
@@ -40,5 +40,11 @@
 					}
 				}
 
+			?>
+			<div class="reminder">
+				<p> Not a member? <a href="#">Sign up now</a></p>
+				<p><a href="#">Forgot password?</a></p>
+			</div>
+		</div>
 	</body>
 </html>
