@@ -23,7 +23,7 @@
 	<body>
 
 		<form name="ident" action="<?php echo $_SERVER['PHP_SELF'];?>" method="POST">
-			<?php include(errors.php) ?>
+			<?php include("errors.php")?>
 			<fieldset>
 				<br>
 				Username: <input type="text" name="username"/>
@@ -72,8 +72,6 @@
 
 				$_SESSION['username'] = $username;
 				$_SESSION['success'] = "You're now logged in";
-
-				header('location: index.php');
 			}
 
 
