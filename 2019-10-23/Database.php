@@ -21,8 +21,8 @@
 
 			<?php
 				$dbServername = "localhost";
-				$dbUsername = "alvaroz";
-				$dbPassword = "zambrana97";
+				$dbUsername = "alvaro";
+				$dbPassword = "zambrana79";
 				$dbName = "Matricula";
 
 				// Creates a new connection under the variable called "Conn"
