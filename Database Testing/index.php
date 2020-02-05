@@ -3,7 +3,7 @@
 	include('config/connect.php');
 
 	// Write query for all devices.
-	$sql = 'SELECT * FROM pcs';
+	$sql = 'SELECT * FROM pcs ORDER BY id';
 
 	// Make the query and get results:
 	$results = mysqli_query($conn, $sql);
@@ -34,6 +34,7 @@
 
 			<div class="col s6 md3">
 				<div class="card z-depth-0">
+					<img src="img/device.svg" class="device">
 					<div class="card-content center">
 						<h6><?php echo htmlspecialchars($dev['name']); ?></h6>
 						<div><?php echo htmlspecialchars($dev['type']); ?></div>
@@ -41,7 +42,7 @@
 						<div><?php echo htmlspecialchars($dev['brand']); ?></div>
 					</div>
 					<div class="card-action right-align">
-						<a href="details.php" class="brand-text">More Info</a>
+						<a href="details.php?id=<?php echo $dev['id'] ?>" class="brand-text">More Info</a>
 					</div>
 				</div>
 			</div>

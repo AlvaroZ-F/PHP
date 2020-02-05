@@ -42,8 +42,10 @@ $errors = array('dev_name' => '', 'dev_type' => '', 'dev_desc' => '', 'dev_brand
 			$sql = "INSERT INTO pcs(name, type, description, brand) VALUES ('$device_name','$device_type','$device_desc','$device_brand')";
 
 			// Save to database and check:
+
 			if(mysqli_query($conn, $sql)) {
 				// Success
+				header("Location: index.php");
 			} else {
 				// Error
 				echo "Query error: " . mysqli_error($conn);
@@ -59,7 +61,7 @@ $errors = array('dev_name' => '', 'dev_type' => '', 'dev_desc' => '', 'dev_brand
 	
 	<section class="container grey-text">
 		<h4 class="center">Add a device</h4>
-		<form class="white" action="add.php" method="POST">
+		<form class="white" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
 			<label>Device's Name</label>
 			<input type="text" name="dev_name" value="<?php echo $device_name ?>"/>
 			<div class="red-text"><?php echo $errors['dev_name']; ?></div>
